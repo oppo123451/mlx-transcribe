@@ -1,25 +1,16 @@
 # mlx-transcribe
 
-fast, private speech-to-text that runs entirely on your own mac :)
-
-no api keys. no cloud. no per-minute billing. your audio never leaves the
-machine. whisper large-v3 runs on the apple silicon gpu through mlx, at
-roughly **2.7x realtime** — an eight minute recording transcribes in about
-three minutes.
+Runs whisper large-v3 locally via MLX (Apple Silicon GPU). Zero network egress — audio stays on disk, no keys to provision, no metered billing. Throughput: ~2.7x realtime (8 min audio ≈ 3 min wall clock).
 
 ## what it does
 
-- **transcribes audio and video** — mp3, wav, m4a, flac, aiff, mp4, mov,
-  anything ffmpeg can decode
-- **timestamps every segment** — start and end times to the centisecond
-- **exports subtitles** — plain text and `.srt` out of the box
-- **detects speech first** — silero vad finds the parts where someone is
-  actually talking, so music, silence, and room tone never reach the model
-- **filters low-confidence output** — segments are scored on log-probability,
-  compression ratio, and lexical diversity, and dropped if they fail
-- **takes domain context** — pass in names, acronyms, or jargon and the
-  decoder biases toward them. big accuracy win on proper nouns
-- **runs offline** — after the first model download, no network needed at all
+	•	audio and video in — mp3, wav, m4a, flac, aiff, mp4, mov — anything ffmpeg can decode
+	•	segment-level timestamps — start/end to the centisecond
+	•	subtitle export — plaintext and .srt, no post-processing step
+	•	VAD gating — silero VAD isolates speech first, so music, silence, and room tone never reach the decoder
+	•	confidence filtering — segments scored on log-probability, compression ratio, and lexical diversity; anything below threshold gets dropped
+	•	domain priming — pass in names, acronyms, or jargon and the decoder biases toward them; large win on proper nouns
+	•	offline after first run — one model download, then zero network calls
 
 ## requirements
 
