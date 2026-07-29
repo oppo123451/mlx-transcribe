@@ -1,6 +1,6 @@
 # mlx-transcribe
 
-Runs whisper large-v3 locally via MLX (Apple Silicon GPU). Zero network egress — audio stays on disk, no keys to provision, no metered billing. Throughput: ~2.7x realtime (8 min audio ≈ 3 min wall clock).
+🔊 Runs whisper large-v3 locally via MLX (Apple Silicon GPU). Zero network egress — audio stays on disk, no keys to provision, no metered billing. Throughput: ~2.7x realtime (8 min audio ≈ 3 min wall clock).
 
 ## what it does
 
